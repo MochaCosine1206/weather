@@ -19,6 +19,14 @@ class MainComponent extends Component {
             })
     }
 
+    getWeather = (city) => {
+        API.getWeather(city)
+        .then(res => {
+            this.setState({ weather: res.data.list })
+        })
+        .catch(err => console.log(err))
+    } 
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -29,12 +37,7 @@ class MainComponent extends Component {
 
     handleButttonSubmit = (event) => {
         this.setState({ city: event })
-        API.getWeather(this.state.city)
-            .then(res => {
-                this.setState({ weather: res.data.list })
-            })
-            .catch(err => console.log(err))
-
+        this.getWeather(event);
     };
 
     render() {
