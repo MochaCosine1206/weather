@@ -1,5 +1,4 @@
 import React from "react";
-import moment from "moment"
 import "./style.css";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
@@ -7,8 +6,6 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'r
 
 export function JumboGraph(props) {
     const chartData = props.weatherData
-    const time = props.weatherData.map(data => moment(data.dt_txt).format('dddd'))
-    console.log(time)
     return (
         <div className="jumbotron-fluid">
         
